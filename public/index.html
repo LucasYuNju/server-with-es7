@@ -3,8 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <style>
+        p.system {
+            font-family: -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+        }
+        p.helverica {
+            font-family: Helvetica, Arial, sans-serif;        
+        }
+        p.helverica-neue {
+            font-family: Helvetica, Arial, sans-serif;        
+        }
+    </style>
+    <script src="vendor/jquery.min.js" charset="utf-8"></script>
 </head>
 <body>
-    <h1>Hello</h1>
+    <p class="system">Hello</p>
+    <p class="helverica">Hello</p>
+    <p class="helverica-neue">Hello</p>
+    <script type="text/javascript">
+        $.ajax({
+            url: "/api/tpi",
+            data: {
+                from: 1480435200000,
+                to: 1480435900000,
+            }
+        }).then(response => {
+            console.log(response);
+        });
+    </script>
 </body>
 </html>
