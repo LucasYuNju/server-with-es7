@@ -1,5 +1,6 @@
 {
     http: {
-        port: 80
+        // port 80 is used by nginx
+        port: 8000
     }
 }
