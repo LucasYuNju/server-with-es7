@@ -1,0 +1,8 @@
+{
+    project: {
+        id: "server-with-es7",
+        id: "server-with-es7"
+    },
+    http: {
+    }
+}
