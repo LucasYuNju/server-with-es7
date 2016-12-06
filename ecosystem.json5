@@ -1,0 +1,36 @@
+{
+    "apps": [
+        {
+            name         : "server1",
+            max_memory_restart: "10M",
+            watch       : false,
+            env: {
+              NODE_ENV: "development",
+              PORT: "8000",
+            },
+            script     : "index.js",
+            instances  : 1,
+            exec_mode  : "fork",
+            error_file : "./output/child-err.log",
+            out_file   : "./output/child-out.log",
+            exec_interpreter: "./node_modules/.bin/babel-node",
+            "merge_logs"  : true,
+        },
+        {
+            name         : "server2",
+            max_memory_restart: "10M",
+            watch       : false,
+            env: {
+              NODE_ENV: "development",
+              PORT: "8001",
+            },
+            script     : "index.js",
+            instances  : 1,
+            exec_mode  : "fork",
+            error_file : "./output/child-err.log",
+            out_file   : "./output/child-out.log",
+            exec_interpreter: "./node_modules/.bin/babel-node",
+            "merge_logs"  : true,
+        },
+    ]
+}

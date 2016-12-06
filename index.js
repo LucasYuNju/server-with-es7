@@ -20,14 +20,15 @@ function checkEnvironment() {
 }
 
 function startHttpServer() {
-    const port = parseInt(config.get("http.port"));
+    const port = parseInt(process.env.PORT);
+    // const port = parseInt(config.get("http.port"));
     if (isNaN(port)) {
         throw new Error(`"http.port" must be specified as a number in config`);
     }
 
     app.attach(httpServer);
-    // equivalent httpServer.on("request", app);
-    httpServer.listen(8000, () => {
+    // Equivalent to httpServer.on("request", app);
+    httpServer.listen(port, () => {
         console.log(`Server is listening at port ${port}...`);
     });    
 }
