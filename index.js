@@ -20,8 +20,10 @@ function checkEnvironment() {
 }
 
 function startHttpServer() {
-    const port = parseInt(process.env.PORT);
+    console.log('instance no', process.env.NODE_APP_INSTANCE);
+    console.log('config.port', config.get("http.port"));
     // const port = parseInt(config.get("http.port"));
+    const port = config.get("http.port");
     if (isNaN(port)) {
         throw new Error(`"http.port" must be specified as a number in config`);
     }
