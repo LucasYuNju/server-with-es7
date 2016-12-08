@@ -15,7 +15,7 @@
     <div class="template"></div>
     <script type="text/javascript">        
         $.ajax({
-            url: "/api/bl/00010/0/busLineInfo",
+            url: "/api/bl/bus-line/00010-0/info",
         }).then(response => {
             document.body.innerHTML = "<p>" + JSON.stringify(response) + "</p>";
         });
