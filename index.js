@@ -3,7 +3,7 @@ import express from "express";
 
 import httpServer from "./lib/http/server";
 import app from "./lib/app";
-import socketServer from "./ws/server";
+import socketServer from "./lib/ws/server";
 
 
 (function main()
@@ -40,5 +40,5 @@ function startHttpServer()
 
 function startSocketServer()
 {
-    socketServer.attach(httpServer):
+    socketServer.attach(httpServer);
 }
