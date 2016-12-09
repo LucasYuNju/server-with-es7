@@ -39,3 +39,6 @@ jspm_packages
 # config
 config/development.*
 config/local.*
+
+# output folder
+output
