@@ -3,15 +3,19 @@ import express from "express";
 
 import httpServer from "./lib/http/server";
 import app from "./lib/app";
+import socketServer from "./ws/server";
 
 
-(function main() {
+(function main()
+{
     checkEnvironment();
+    startSocketServer();
     startHttpServer();
 })();
 
 
-function checkEnvironment() {
+function checkEnvironment()
+{
     const env = app.get("env");
     if (env !== "development" && env !== "production") {
         throw new Error(`Unsupported NODE_ENV [${env}]`);
@@ -19,7 +23,8 @@ function checkEnvironment() {
     console.log(`Server running in [${env}] mode`);
 }
 
-function startHttpServer() {
+function startHttpServer()
+{
     const instanceNumber = parseInt(process.env.NODE_APP_INSTANCE) || 0;
     const port = parseInt(config.get("http.port")) + instanceNumber;
     if (isNaN(port)) {
@@ -31,4 +36,9 @@ function startHttpServer() {
     httpServer.listen(port, () => {
         console.log(`Server is listening at port ${port}...`);
     });    
+}
+
+function startSocketServer()
+{
+    socketServer.attach(httpServer):
 }
